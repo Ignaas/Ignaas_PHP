@@ -1,7 +1,8 @@
 <?php
-$data_laikas = date("Y/m/d h:i:s");
-?>
 
+$data_laikas = date("Y/m/d h:i:s");
+
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -9,8 +10,8 @@ $data_laikas = date("Y/m/d h:i:s");
     </head>
     <body>
         <h1>Ignas - HTML <?php print "ir PHP"; ?> asas!</h1>
-        <p>Kuriu dinaminį turinį. Atidaryta:
-            <?php print $data_laikas; ?>
+        <p>Kuriu dinaminį turinį. <br>
+            Atidaryta: <?php print $data_laikas; ?>
         </p>
     </body>
 </html>
