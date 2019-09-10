@@ -8,16 +8,16 @@ $moksluPradzia = strtotime('2019-07-04');
 <html>
     <head>
         <meta charset="UTF-8">
-        <title><?php print 'Aš, ' . strftime('%A') . ' ir PHP'; ?></title>
+        <title>PHP lydės ir <?php print date('Y-m-d', strtotime('+ 1 day')); ?>!</title>
     </head>
     <body>
         <h1>
-            Ignas - HTML <?php print 'ir PHP'; ?> asas jau nuo
-            <?php print date('Y', $moksluPradzia) . ' metų' ?>
+            Ignas - PHP su manim buvo ir
+            <?php print date('H', strtotime('- 1 hour')) . ' valandą!'; ?> 
         </h1>
         <p>
-            Viskas prasidėjo <?php print strftime('%m'); ?> <br>
-            <?php print ' mėnesio, ' . strftime('%e') . ' dieną!' ?>
+            <?php print date('Y', strtotime('+1 Year')) ?>
+            ne už kalnų!
         </p>
     </body>
 </html>
