@@ -1,5 +1,5 @@
 <?php
-
+//php komentaras
 date_default_timezone_set('Europe/Vilnius');
 setlocale(LC_TIME, array('lt_LT.UTF-8', 'lt_LT@euro', 'lt_LT', 'lithuanian'));
 $moksluPradzia = strtotime('2019-07-04');
