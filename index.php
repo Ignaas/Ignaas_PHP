@@ -8,7 +8,7 @@ $moksluPradzia = strtotime('2019-07-04');
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>PHP lydės ir <?php print date('Y-m-d', strtotime('+ 1 day')); ?>!</title>
+        <title>PHP lydės ir <?php print date('Y-m-d', strtotime('+ 1 day')); ?>!!</title>
     </head>
     <body>
         <h1>
