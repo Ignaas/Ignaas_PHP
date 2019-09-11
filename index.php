@@ -1,23 +1,19 @@
-<?php
-
-date_default_timezone_set('Europe/Vilnius');
-setlocale(LC_TIME, array('lt_LT.UTF-8', 'lt_LT@euro', 'lt_LT', 'lithuanian'));
-$moksluPradzia = strtotime('2019-07-04');
-
-?>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>PHP lydės ir <?php print date('Y-m-d', strtotime('+ 1 day')); ?>!!</title>
+        <title>PHP lydės ir
+            <?php print date('Y-m-d', strtotime('- ' . rand(1, 10) . ' year - ' . rand(1, 12) . ' month - ' . rand(1, 28) . ' day')); ?>!
+        </title>
     </head>
     <body>
         <h1>
-            Ignas - PHP su manim buvo ir
-            <?php print date('H', strtotime('- 1 hour')) . ' valandą!'; ?> 
+            Ignas - Galbūt turėsiu 
+            <?php print rand(1, 5); ?> 
+            vaikų (us)!
         </h1>
         <p>
-            <?php print date('Y', strtotime('+1 Year')) ?>
-            ne už kalnų!
+            D. Trump'as nebebus prezidentu: <br>
+            <?php print date('Y-m-d', strtotime('+ ' . rand(2, 10) . ' year')) ?>
         </p>
     </body>
 </html>
