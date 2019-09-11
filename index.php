@@ -6,9 +6,17 @@
             <?php print date('Y-m-d', strtotime('+ ' . rand(1, 21349213481) . ' seconds')); ?>!
         </title>
         <style>
-            body {background: rgb(<?php print rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255); ?>); }
-            h1 {font-size: <?php print rand(0, 30); ?>; }
-            p {color: rgb(<?php print rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255); ?>); }
+            body {
+                background: rgb(<?php print rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255); ?>); 
+            }
+
+            h1 {
+                font-size: <?php print rand(0, 30); ?>;
+            }
+
+            p {
+                color: rgb(<?php print rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255); ?>);
+            }
         </style>
     </head>
     <body>
