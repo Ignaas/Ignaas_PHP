@@ -1,8 +1,8 @@
 <?php
 
-$skola_paimta = (rand(1, 100));
-$skola_atiduodama_100_200 = (rand(101, 200));
-$skola_atiduodama_200_300 = (rand(201, 300));
+$skola_paimta = rand(1, 100);
+$skola_atiduodama_100_200 = rand(101, 200);
+$skola_atiduodama_200_300 = rand(201, 300);
 
 ?>
 <html>
