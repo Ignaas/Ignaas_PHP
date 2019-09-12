@@ -14,9 +14,9 @@ $skola_atiduodama_extra300 = (rand(301, 400));
     <div class="body-custom">
         <h1>Skolos skaičiuoklė</h1>
         <h2>Jei paėmei <?php print $skola_paimta; ?> eurų.</h2>
-        <h3>Su vienu kabančiu grąžinsi <?php print $skola_atiduodama_extra100; ?> eurų.</h3>
-        <h3>Su dviem kabančiais grąžinsi <?php print $skola_atiduodama_extra200; ?> eurų.</h3>
-        <h3>Su trimis kabančiais grąžinsi <?php print $skola_atiduodama_extra300; ?> eurų.</h3>
+        <h3>Su vienu kabančiu grąžinsi <?php print "$skola_paimta + $skola_atiduodama_extra100"; ?> eurų.</h3>
+        <h3>Su dviem kabančiais grąžinsi <?php print "$skola_paimta + $skola_atiduodama_extra200"; ?> eurų.</h3>
+        <h3>Su trimis kabančiais grąžinsi <?php print "$skola_paimta + $skola_atiduodama_extra300"; ?> eurų.</h3>
     </div>
 </body>
 </html>
