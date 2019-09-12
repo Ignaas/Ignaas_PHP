@@ -1,7 +1,7 @@
 <?php
 $string = 'stringas';
 $int = 5;
-$bool = true;
+$bool = bool;
 $null = NULL;
 ?>
 <html>
@@ -11,10 +11,10 @@ $null = NULL;
     </head>
     <body>
         <ul>
-            <li>String tipas: <?php print $string; ?></li>
-            <li>String tipas: <?php print $int; ?></li>
-            <li>String tipas: <?php print $bool; ?></li>
-            <li>String tipas: <?php print $null; ?></li>
+            <li>String Tipas: <?php print $string; ?></li>
+            <li>Integer Tipas: <?php print $int; ?></li>
+            <li>Boolean Tipas: <?php print $bool; ?></li>
+            <li>Null Tipas: <?php print $null; ?></li>
         </ul>
     </body>
 </html>
