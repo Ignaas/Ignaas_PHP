@@ -9,6 +9,7 @@ while ($current_siuksles <= $max_kaupo_turis) {
     $current_siuksles += $siuskliu_turis_per_d;
     $available_days++;
 }
+$available_days -= 1;
 $deadline = date('Y-m-d', strtotime("+ $available_days day"));
 
 ?>
