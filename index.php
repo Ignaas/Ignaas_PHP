@@ -5,6 +5,7 @@ $skola_atiduodama_100_200 = (rand(101, 200));
 $skola_atiduodama_200_300 = (rand(201, 300));
 
 ?>
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Kintamieji - pataisyti - čia užduoties name - NEREDUNDANT</title>
