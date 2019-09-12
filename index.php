@@ -1,7 +1,7 @@
 <?php
 $string = 'stringas';
 $int = 5;
-$bool = bool;
+$bool = true;
 $null = NULL;
 ?>
 <html>
