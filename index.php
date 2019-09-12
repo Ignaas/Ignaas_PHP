@@ -8,10 +8,10 @@ $skola_atiduodama_extra300 = (rand(301, 400));
 ?>
 <head>
     <meta charset="UTF-8">
-    <title>Kintamieji - pataisyti</title>
+    <title>Kintamieji - pataisyti - čia užduoties name - NEREDUNDANT</title>
 </head>
 <body>
-    <div class="body-custom">
+    <div>
         <h1>Skolos skaičiuoklė</h1>
         <h2>Jei paėmei <?php print $skola_paimta; ?> eurų.</h2>
         <h3>Su vienu kabančiu grąžinsi <?php print "$skola_paimta + $skola_atiduodama_extra100"; ?> eurų.</h3>
