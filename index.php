@@ -1,8 +1,8 @@
 <?php
 
 $skola_paimta = (rand(1, 100));
-$skola_atiduodama_extra100 = (rand(101, 200));
-$skola_atiduodama_extra200 = (rand(201, 300));
+$skola_atiduodama_100_200 = (rand(101, 200));
+$skola_atiduodama_200_300 = (rand(201, 300));
 
 ?>
 <head>
@@ -13,8 +13,8 @@ $skola_atiduodama_extra200 = (rand(201, 300));
     <div>
         <h1>Skolos skaičiuoklė</h1>
         <h2>Jei paėmei <?php print $skola_paimta; ?> eurų.</h2>
-        <h3>Su vienu kabančiu grąžinsi <?php print $skola_atiduodama_extra100; ?> eurų.</h3>
-        <h3>Su dviem kabančiais grąžinsi <?php print $skola_atiduodama_extra200; ?> eurų.</h3>
+        <h3>Su vienu kabančiu grąžinsi <?php print $skola_atiduodama_100_200; ?> eurų.</h3>
+        <h3>Su dviem kabančiais grąžinsi <?php print $skola_atiduodama_200_300; ?> eurų.</h3>
     </div>
 </body>
 </html>
