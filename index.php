@@ -1,32 +1,32 @@
 <?php
 
-$grizai_velai = rand(0, 1);
-$grizai_isgeres = rand(0, 1);
-$sofa = 'Nemiegosi ant sofos';
+$orai = rand(0, 1);
 
-$situacija = 'Situacija: ';
-if ($grizai_velai) {
-    $situacija .= 'Grįžai vėlai';
-
-    if ($grizai_isgeres) {
-        $situacija .= ' ir išgėręs';
-        $sofa = 'Miegosi ant sofos';
-    }
-} elseif ($grizai_isgeres) {
-    $situacija .= 'Grįžai išgėręs';
+if ($orai == 1) {
+    $orai = 'oras0';
 } else {
-    $situacija .= 'Nieko nepadarei';
+    $orai = 'oras1';
 }
 
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Užduotis #4</title>
+        <title>Užduotis #5</title>
+        <style>
+            .orai_box {
+                height: 128px;
+                width: 128px;
+            }
+            .oras0 {
+                background-image: url(https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fthegazette.com.au%2Fwp-content%2Fuploads%2Fweather_icons%2Fmostlycloudy.png&f=1&nofb=1);
+            }
+            .oras1 {
+                background-image: url(https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Ffiles.softicons.com%2Fdownload%2Ftoolbar-icons%2Fvista-weather-icons-by-icons-land%2Fpng%2F128x128%2FSunny.png&f=1&nofb=1);
+            }
+        </style>
     </head>
     <body>
-        <h1>Buitinė skaičiuoklė</h1>
-        <h2><?php print $situacija; ?></h2>
-        <h3><?php print $sofa; ?></h3>
+        <div class="orai_box <?php print $orai; ?>"></div>
     </body>
 </html>
