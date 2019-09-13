@@ -7,17 +7,18 @@ $my_money = 100;
 
 $fuel_consump = $distance_km / $consumption;
 $price_fuel = $fuel_consump * $price_l;
+
+$affordable = 'Išvada: Kelionė ';
 if ($my_money >= $price_fuel) {
-    $affordable = 'įperkama';
+    $affordable .= 'įperkama';
 } else {
-    $affordable = 'neįperkama';
+    $affordable .= 'neįperkama';
 }
 
 $distance = "Nuvažiuota distancija: $distance_km km.";
 $fuel_total = "Sunaudota $fuel_consump l. kuro.";
 $price_trip = "Kaina: $price_fuel euro valiutos pinigų.";
-$my_moneyhtml = "Turimi pinigai: $my_money";
-$kelione = "Išvada: Kelionė $affordable";
+$money = "Turimi pinigai: $my_money";
 
 ?>
 <html>
@@ -30,11 +31,11 @@ $kelione = "Išvada: Kelionė $affordable";
             <li><?php print $distance; ?></li>
             <li><?php print $fuel_total; ?></li>
             <li><?php print $price_trip; ?></li>
-            <li><?php print $my_moneyhtml ?></li>
+            <li><?php print $money; ?></li>
         </ul>
         <hr>
         <p>
-            <?php print $kelione; ?>
+            <?php print $affordable; ?>
         </p>
     </body>
 </html>
