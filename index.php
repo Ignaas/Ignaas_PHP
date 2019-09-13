@@ -4,7 +4,7 @@ $distance_km = rand(3, 180);
 $consumption = 11;
 $price_l = 0.503;
 
-$fuel_consump = $distance_km * $consumption;
+$fuel_consump = $distance_km / $consumption;
 $price_fuel = $fuel_consump * $price_l;
 
 $distance = "Nuvažiuota distancija: $distance_km km.";
