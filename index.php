@@ -2,12 +2,12 @@
 
 $orai = rand(0, 1);
 
-if ($orai == 0) {
-    $orai = 'oras0';
-    $value = 'Debesuota';
+if ($orai) {
+    $css_orai = 'sauleta';
+    $text_value = 'Saulėta';
 } else {
-    $orai = 'oras1';
-    $value = 'Saulėta';
+    $css_orai = 'debesuota';
+    $text_value = 'Debesuota';
 }
 
 ?>
@@ -20,24 +20,24 @@ if ($orai == 0) {
                 height: 128px;
                 width: 128px;
             }
-            
-            .oras0 {
-                float: left;
-                background-image: url(https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fthegazette.com.au%2Fwp-content%2Fuploads%2Fweather_icons%2Fmostlycloudy.png&f=1&nofb=1);
-            }
-            
-            .oras1 {
+
+            .sauleta {
                 float: left;
                 background-image: url(https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Ffiles.softicons.com%2Fdownload%2Ftoolbar-icons%2Fvista-weather-icons-by-icons-land%2Fpng%2F128x128%2FSunny.png&f=1&nofb=1);
             }
-            
+
+            .debesuota {
+                float: left;
+                background-image: url(https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fthegazette.com.au%2Fwp-content%2Fuploads%2Fweather_icons%2Fmostlycloudy.png&f=1&nofb=1);
+            }
+
             .text {
                 padding-top: 50px;
             }
         </style>
     </head>
     <body>
-        <div class="orai_box <?php print $orai; ?>"></div>
-        <div class="text"><?php print $value; ?></div>
+        <div class="orai_box <?php print $css_orai; ?>"></div>
+        <div class="text"><?php print $text_value; ?></div>
     </body>
 </html>
