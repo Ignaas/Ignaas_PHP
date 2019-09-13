@@ -9,7 +9,7 @@ $price_fuel = $fuel_consump * $price_l;
 
 $distance = "Nuvažiuota distancija: $distance_km km.";
 $fuel_total = "Sunaudota $fuel_consump l. kuro.";
-$price_trip = "Kaina: $price_fuel euro pinigų";
+$price_trip = "Kaina: $price_fuel euro valiutos pinigų.";
 
 ?>
 <html>
@@ -20,9 +20,9 @@ $price_trip = "Kaina: $price_fuel euro pinigų";
     <body>
         <h1>Kelionės skaičiuoklė</h1>
         <ul>
-            <li><?php print $distance; ?></li><br>
-            <li><?php print $fuel_total; ?></li><br>
-            <li><?php print $price_trip; ?></li><br>
+            <li><?php print $distance; ?></li>
+            <li><?php print $fuel_total; ?></li>
+            <li><?php print $price_trip; ?></li>
         </ul>
     </body>
 </html>
