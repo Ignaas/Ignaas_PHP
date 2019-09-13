@@ -1,26 +1,27 @@
 <?php
 
-$siukslines_turis = 40;
-$siuskliu_turis_per_d = 15;
-$max_kaupo_turis = rand($siukslines_turis, $siukslines_turis + rand(1, 15));
-$current_siuksles = 0;
-$available_days = 0;
-while ($current_siuksles <= $max_kaupo_turis) {
-    $current_siuksles += $siuskliu_turis_per_d;
-    $available_days++;
-}
-$available_days -= 1;
-$deadline = date('Y-m-d', strtotime("+ $available_days day"));
+$distance_km = rand(3, 180);
+$consumption = 11;
+$price_l = 0.503;
+$fuel_consump = $distance_km * $consumption;
+$price_fuel = $fuel_consump * $price_l;
+
+$distance = "Nuvažiuota distancija: $distance_km km.";
+$fuel_total = "Sunaudota $fuel_consump l. kuro.";
+$price_trip = "Kaina: $price_fuel euro pinigų"
 
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Užduotis #4</title>
+        <title>Užduotis #1</title>
     </head>
     <body>
-        Po <?php print $available_days; ?> dienų (<?php print $deadline; ?>) pirk gėlių ir <br>
-        šampano, jeigu nori išvengti <br>
-        konflikto.
+        <h1>Kelionės skaičiuoklė</h1>
+        <ul>
+            <?php print $distance; ?><br>
+            <?php print $fuel_total; ?><br>
+            <?php print $price_trip; ?><br>
+        </ul>
     </body>
 </html>
