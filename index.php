@@ -2,12 +2,11 @@
 
 $kates = rand(1, 3);
 $sunys = rand(1, 3);
-$pavyko = rand(0, 1);
 $katasuniai = 0;
 
-for ($i = 0; $i < $sunys; $i++) {
-    for ($j = 0; $j < $kates; $j++) {
-        if ($pavyko) {
+for ($i = 0; $i < $kates; $i++) {
+    for ($j = 0; $j < $sunys; $j++) {
+        if (rand(0, 1)) {
             $katasuniai++;
             break;
         }
