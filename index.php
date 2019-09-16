@@ -37,11 +37,21 @@ $h3_text = "Nerukydamas darbo dienomis, sutaupyčiau $price_mon_thu eur.";
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Užduotis #6 - darbo dienų sutaupymas</title>
+        <title>Užduotis H1</title>
+        <style>
+            .cig {
+                display: inline-block;
+                background-image: url(https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fmusett%2Fcoffee-shop%2F64%2FCigarette-icon.png&f=1&nofb=1);
+                background-size: contain;
+                height: 16px; 
+                width: 16px; 
+            }
+        </style>
     </head>
     <body>
         <h1>Mano dūmų skaičiuoklė</h1>
-        <h2><?php print $h2_text; ?></h2>
-        <h3><?php print $h3_text; ?></h3>
+        <?php for ($i = 0; $i < $count_ttl; $i++): ?>
+            <div class="cig"></div>
+        <?php endfor; ?>
     </body>
 </html>
