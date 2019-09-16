@@ -8,8 +8,8 @@ for ($i = 1; $i <= $days; $i++) {
     $cigs_mon_fri = rand(3, 4);
     $cigs_sat = rand(10, 20);
     $cigs_sun = rand(5, 6);
-
-    $loop_date = date('N', $i);
+    
+    $loop_date = date('N', strtotime("+$i day"));
     if ($loop_date == 7) {
         $count_ttl += $cigs_sun;
     } elseif ($loop_date == 6) {
