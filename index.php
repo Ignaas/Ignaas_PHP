@@ -6,7 +6,8 @@ $katasuniai = 0;
 
 for ($i = 0; $i < $kates; $i++) {
     for ($j = 0; $j < $sunys; $j++) {
-        if (rand(0, 1)) {
+        $pavyko = rand(0, 1);
+        if ($pavyko) {
             $katasuniai++;
             break;
         } else {
@@ -14,6 +15,9 @@ for ($i = 0; $i < $kates; $i++) {
         }
     }
 }
+
+$dalyviai = "Dalyvavo $kates katės ir $sunys šunys";
+$iseiga = "Katašunių išeiga: $katasuniai";
 
 ?>
 <html>
@@ -23,7 +27,7 @@ for ($i = 0; $i < $kates; $i++) {
     </head>
     <body>
         <h1>Katašunių Išeiga</h1>
-        <h2>Dalyvavo <?php print $kates; ?> katės ir <?php print $sunys; ?> šunys</h2>
-        <h3>Katašunių išeiga: <?php print $katasuniai; ?></h3>
+        <h2><?php print $dalyviai; ?></h2>
+        <h3><?php print $iseiga; ?></h3>
     </body>
 </html>
