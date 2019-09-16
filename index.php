@@ -19,8 +19,8 @@ for ($i = 1; $i <= $days; $i++) {
     }
 }
 
-$price_ttl = $count_ttl * $pack_price;
-$cig_maths = "Per $days dienas, surukysiu $count_ttl cigarečių už $price_ttl eur.";
+$price_ttl = ($count_ttl / 20) * $pack_price;
+$cigs_text = "Per $days dienas, surukysiu $count_ttl cigarečių už $price_ttl eur.";
 
 ?>
 <html>
@@ -30,6 +30,6 @@ $cig_maths = "Per $days dienas, surukysiu $count_ttl cigarečių už $price_ttl 
     </head>
     <body>
         <h1>Mano dūmų skaičiuoklė</h1>
-        <h2><?php print $cig_maths; ?></h2>
+        <h2><?php print $cigs_text; ?></h2>
     </body>
 </html>
