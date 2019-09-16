@@ -9,6 +9,8 @@ for ($i = 0; $i < $kates; $i++) {
         if (rand(0, 1)) {
             $katasuniai++;
             break;
+        } else {
+            continue;
         }
     }
 }
