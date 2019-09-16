@@ -24,6 +24,6 @@ for ($i = 0; $i < $kates; $i++) {
     <body>
         <h1>Katašunių Išeiga</h1>
         <h2>Dalyvavo <?php print $kates; ?> katės ir <?php print $sunys; ?> šunys</h2>
-        <h3>Katašunių išeiga: <?php print $katasuniai ?></h3>
+        <h3>Katašunių išeiga: <?php print $katasuniai; ?></h3>
     </body>
 </html>
