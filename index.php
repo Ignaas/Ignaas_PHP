@@ -54,7 +54,7 @@ $h3_text = "Nerukydamas darbo dienomis, sutaupyčiau $price_mon_thu eur.";
     <body>
         <h1>Mano dūmų skaičiuoklė</h1>
         <?php for ($i = 0; $i < $pack_count; $i++): ?>
-            <?php print "<div class=\"pack\"></div>"; ?>
+            <div class="pack"></div>
         <?php endfor; ?>
     </body>
 </html>
