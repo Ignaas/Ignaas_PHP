@@ -2,6 +2,7 @@
 
 $days = 365;
 $count_ttl = 0;
+$cigs_saved = 0;
 
 for ($i = 1; $i <= $days; $i++) {
     $cigs_sun = rand(5, 6);
@@ -15,34 +16,28 @@ for ($i = 1; $i <= $days; $i++) {
         $count_ttl += $cigs_sun;
     } elseif ($loop_date == 6) {
         $count_ttl += $cigs_sat;
-    } else {
+    } elseif ($loop_date == 5) {
         $count_ttl += $cigs_mon_fri;
+    } else {
+        $cigs_saved += $cigs_mon_fri;
     }
 }
 
 $time_total = $count_ttl * $time_per_cig / 60;
 $time_hours = intval($time_total);
 $time_mins = intval(($time_total - $time_hours) * 60);
-$price_ttl = (intval($count_ttl / 20) + 1) * $pack_price;
+
+$price_ttl = ($count_ttl / 20) * $pack_price;
+$price_mon_thu = ($cigs_saved / 20) * $pack_price;
 
 $h2_text = "Per $days dienas, surukysiu $count_ttl cigarečių už $price_ttl eur.";
-$h3_text = "Viso traukdamas prastovėsiu $time_hours valandų ";
-
-if ($time_mins != 0) {
-    if ($time_mins > 0 && $time_mins < 10) {
-        $h3_text .= "ir $time_mins minutes.";
-    } else {
-        $h3_text .= "ir $time_mins minučių.";
-    }
-} else {
-    $h3_text = "Viso traukdamas prastovėsiu $time_hours valandų.";
-}
+$h3_text = "Nerukydamas darbo dienomis, sutaupyčiau $price_mon_thu eur.";
 
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Užduotis #5</title>
+        <title>Užduotis #6 - darbo dienų sutaupymas</title>
     </head>
     <body>
         <h1>Mano dūmų skaičiuoklė</h1>
