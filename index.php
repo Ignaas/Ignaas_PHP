@@ -10,8 +10,6 @@ for ($i = 0; $i < $kates; $i++) {
         if ($pavyko) {
             $katasuniai++;
             break;
-        } else {
-            continue;
         }
     }
 }
