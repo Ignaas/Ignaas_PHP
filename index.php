@@ -29,6 +29,7 @@ $time_mins = intval(($time_total - $time_hours) * 60);
 
 $price_ttl = ($count_ttl / 20) * $pack_price;
 $price_mon_thu = ($cigs_saved / 20) * $pack_price;
+$pack_count = intval($count_ttl / 20) + 1;
 
 $h2_text = "Per $days dienas, surukysiu $count_ttl cigarečių už $price_ttl eur.";
 $h3_text = "Nerukydamas darbo dienomis, sutaupyčiau $price_mon_thu eur.";
@@ -37,21 +38,23 @@ $h3_text = "Nerukydamas darbo dienomis, sutaupyčiau $price_mon_thu eur.";
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Užduotis H1</title>
+        <title>Užduotis EKSTRA</title>
         <style>
-            .cig {
+            .pack {
                 display: inline-block;
-                background-image: url(https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fmusett%2Fcoffee-shop%2F64%2FCigarette-icon.png&f=1&nofb=1);
+                background-image: url(https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn2.bigcommerce.com%2Fserver4700%2Ff4505%2Fproducts%2F35790%2Fimages%2F184452%2Fhaz_flashcigarette-full__46511.1547602571.120.120.png%3Fc%3D2&f=1&nofb=1);
                 background-size: contain;
-                height: 16px; 
-                width: 16px; 
+                height: 60px; 
+                width: 60px;
+                border: 1px solid #000000;
+                margin: 2px;
             }
         </style>
     </head>
     <body>
         <h1>Mano dūmų skaičiuoklė</h1>
-        <?php for ($i = 0; $i < $count_ttl; $i++): ?>
-            <div class="cig"></div>
+        <?php for ($i = 0; $i < $pack_count; $i++): ?>
+            <?php print "<div class=\"pack\"></div>"; ?>
         <?php endfor; ?>
     </body>
 </html>
