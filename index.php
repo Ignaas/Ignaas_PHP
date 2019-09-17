@@ -11,10 +11,10 @@ for ($i = 1; $i <= $months; $i++) {
 }
 
 $depr_perc = intval((1 - $car_price_used / $car_price_new) * 100);
-$car_price_used = intval($car_price_used);
+$car_price_used_int = intval($car_price_used);
 
 $h2_text = "Naujos mašinos kaina: $car_price_new";
-$h3_text = "Po $months mėn, mašinos vertė bus: $car_price_used eur.";
+$h3_text = "Po $months mėn, mašinos vertė bus: $car_price_used_int eur.";
 $h4_text = "Mašina nuvertės $depr_perc proc.";
 
 ?>
