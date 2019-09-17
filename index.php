@@ -20,7 +20,7 @@ $h4_text = "Mašina nuvertės $depr_perc proc.";
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Užduotis #1</title>
+        <title>Užduotis #2</title>
     </head>
     <body>
         <h1>Kiek nuvertės mašina?</h1>
