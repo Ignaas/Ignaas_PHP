@@ -4,8 +4,7 @@ $grikiai = 5000;
 $grikiai_init = $grikiai;
 $days = 0;
 
-for (; $grikiai > 0; $days++) {
-    $per_day = rand(200, 550);
+for ($per_day = rand(200, 550); $grikiai > 0; $days++) {
     if ($grikiai < $per_day) {
         break;
     } else {
