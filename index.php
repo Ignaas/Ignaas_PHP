@@ -1,20 +1,14 @@
 <?php
 
 $santaupos = 15000;
-$months = 48;
+$months = 0;
 $car_price_new = 30000;
 $car_price_used = $car_price_new;
 $depreciation = 2;
 $depreciation_absolute = (100 - $depreciation) / 100;
 
-
-for ($i = 1; $i <= $months; $i++) {
-    $car_price_used *= $depreciation_absolute;
-
-    if ($car_price_used <= $santaupos) {
-        $months = $i;
-        break;
-    }
+for ($car_price_used; $car_price_used >= $santaupos; $car_price_used *= $depreciation_absolute) {
+    $months++;
 }
 
 $depr_perc = intval((1 - $car_price_used / $car_price_new) * 100);
