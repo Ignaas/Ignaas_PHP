@@ -4,10 +4,13 @@ $grikiai = 5000;
 $grikiai_init = $grikiai;
 $days = 0;
 
-for (;$grikiai > 0;) {
+for (; $grikiai > 0; $days++) {
     $per_day = rand(200, 550);
-    $grikiai -= $per_day;
-    $days++;
+    if ($grikiai < $per_day) {
+        break;
+    } else {
+        $grikiai -= $per_day;
+    }
 }
 
 $data = date('Y-m-d', strtotime("+ $days day"));
