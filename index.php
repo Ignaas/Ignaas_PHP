@@ -1,42 +1,30 @@
 <?php
 
-$fridge = [
-    'shelf_top' => [
-        [
-            'target' => 'kiaušiniai',
-            'count' => 3,
-        ],
-        [
-            'target' => 'grietinė',
-            'count' => 1,
-        ],
-        [
-            'target' => 'jogurtas',
-            'count' => 2,
-        ],
-        [
-            'target' => 'žuvis',
-            'count' => 0,
-        ],
-    ],
-    'shelf_bottom' => [
-        [
-            'target' => 'pienas',
-            'count' => 1,
-        ],
-        [
-            'target' => 'kefyras',
-            'count' => 0,
-        ],
-        [
-            'target' => 'degtine',
-            'count' => 2,
-        ],
-        [
-            'target' => 'kečupas',
-            'count' => 2,
-        ],
-    ],
+$mano_atmintis = [
+    'Ey',
+    'Skomantas',
+    'Baras',
+    'Gvidas Ojeras',
+    'Gudeliunas',
+    'vegetarian',
+    'legislature',
+    'temple',
+    'X-ray'
 ];
 
-var_dump($fridge);
+?>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Užduotis #1</title>
+    </head>
+    <body>
+        <h1>Kas buvo penktadienį?</h1>
+        <h2>Ignas artimesnis - atmintis</h2>
+        <ul>
+            <?php foreach ($mano_atmintis as $value): ?>
+                <li><?php print $value; ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </body>
+</html>
