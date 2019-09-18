@@ -1,15 +1,18 @@
 <?php
 
-$prekes = [
-    'mazos' =>
+$targeted_excpt = [
     [
-        'baklažanas' => 1
+        'target' => 'Petras Pizdys',
+        'exception' => 'pamestas telefonas',
     ],
-    'dideles' =>
     [
-        'kiaušinis' => 2,
-        'grietinės indelis' => 1,
+        'target' => 'Tomas Ablomas',
+        'exception' => 'naudojamas bulijonas',
     ],
+    [
+        'target' => 'Ana Shitkova',
+        'exception' => 'pasibaigęs rulonas',
+    ]
 ];
 
-var_dump($prekes);
+var_dump($targeted_excpt);
