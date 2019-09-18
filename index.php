@@ -16,7 +16,7 @@ $car_price_used_int = intval($car_price_used);
 
 $h2_text = "Naujos mašinos kaina: $car_price_new";
 $h3_text = "Mašiną galėsi nusipirkti po $months mėn, kai jos vertė bus: $car_price_used_int eur.";
-$h4_text = "Mašina nuvertės $depr_perc proc.";
+$h4_text = "Mašina nuvertės $depr_perc proc";
 
 ?>
 <html>
