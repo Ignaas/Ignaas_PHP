@@ -1,16 +1,6 @@
 <?php
 
-$mano_atmintis = [
-    'Ey',
-    'Skomantas',
-    'Baras',
-    'Gvidas Ojeras',
-    'Gudeliunas',
-    'vegetarian',
-    'legislature',
-    'X-ray',
-    'temple',
-];
+$mano_atmintis = ['Ey', 'Skomantas', 'Baras', 'Gvidas Ojeras', 'Gudeliunas', 'vegetarian', 'legislature', 'temple'];
 
 ?>
 <html>
@@ -23,7 +13,9 @@ $mano_atmintis = [
         <h2>Ignas artimesnis atmintis</h2>
         <ul>
             <?php foreach ($mano_atmintis as $mintis): ?>
-            <li><?php print $mintis; ?></li>
+            <li>
+                <?php print $mintis; ?>
+            </li>
             <?php endforeach; ?>
         </ul>
     </body>
