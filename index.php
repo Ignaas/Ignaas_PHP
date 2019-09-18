@@ -1,32 +1,16 @@
 <?php
 
-$mano_atmintis = [
-    'Ey', 'Skomantas', 'Baras',
-    'Gvidas Ojeras', 'Gudeliunas', 'vegetarian',
-    'legislature', 'temple'
-];
+$array = [];
+$timestamp = strtotime('next Monday');
 
-$flashback_count = count($mano_atmintis);
-$id_random = rand(0, ($flashback_count - 1));
-$rand_flashback = $mano_atmintis[$id_random];
-$id_random++;
+for ($i = 1; $i <= 7; $i++) {
+    $array[$i] = date('l', $timestamp);
+    $timestamp = strtotime('+1 day', $timestamp);
+    if ($array[$i] === 'Saturday' || $array[$i] === 'Sunday') {
+        $array[$i] = 'Weekend';
+    }
+}
 
-$h3_text = "Flashback #$id_random: $rand_flashback";
+var_dump($array);
 
 ?>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Užduotis #2</title>
-    </head>
-    <body>
-        <h1>Kas buvo penktadienį?</h1>
-        <h2>Ignas artimesnis atmintis</h2>
-        <ul>
-            <?php foreach ($mano_atmintis as $mintis): ?>
-                <li><?php print $mintis; ?></li>
-            <?php endforeach; ?>
-        </ul>
-        <h3><?php print $h3_text; ?></h3>
-    </body>
-</html>
