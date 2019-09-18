@@ -8,8 +8,8 @@ $mano_atmintis = [
     'Gudeliunas',
     'vegetarian',
     'legislature',
+    'X-ray',
     'temple',
-    'X-ray'
 ];
 
 ?>
@@ -20,11 +20,12 @@ $mano_atmintis = [
     </head>
     <body>
         <h1>Kas buvo penktadienį?</h1>
-        <h2>Ignas artimesnis - atmintis</h2>
-        <ul>
-            <?php foreach ($mano_atmintis as $value): ?>
-                <li><?php print $value; ?></li>
-            <?php endforeach; ?>
-        </ul>
+        <h2>Ignas artimesnis - atmintis
+            <ul>
+                <?php foreach ($mano_atmintis as $reiksme): ?>
+                    <li><?php print $reiksme; ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </h2>
     </body>
 </html>
