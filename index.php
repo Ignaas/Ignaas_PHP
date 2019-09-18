@@ -1,21 +1,42 @@
 <?php
 
-$target_events = [
-    [
-        'user' => 'Petras Pizdys',
-        'event_str' => 'pamestas telefonas',
-        'event_negative' => true,
+$fridge = [
+    'shelf_top' => [
+        [
+            'target' => 'kiaušiniai',
+            'count' => 3,
+        ],
+        [
+            'target' => 'grietinė',
+            'count' => 1,
+        ],
+        [
+            'target' => 'jogurtas',
+            'count' => 2,
+        ],
+        [
+            'target' => 'žuvis',
+            'count' => 0,
+        ],
     ],
-    [
-        'user' => 'Tomas Ablomas',
-        'event_str' => 'naudojamas bulijonas',
-        'event_negative' => false,
-    ],
-    [
-        'user' => 'Ana Shitkova',
-        'event_str' => 'pasibaigęs rulonas',
-        'event_negative' => true,
+    'shelf_bottom' => [
+        [
+            'target' => 'pienas',
+            'count' => 1,
+        ],
+        [
+            'target' => 'kefyras',
+            'count' => 0,
+        ],
+        [
+            'target' => 'degtine',
+            'count' => 2,
+        ],
+        [
+            'target' => 'kečupas',
+            'count' => 2,
+        ],
     ],
 ];
 
-var_dump($target_events);
+var_dump($fridge);
