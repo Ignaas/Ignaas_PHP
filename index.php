@@ -2,17 +2,17 @@
 
 $target_events = [
     [
-        'target' => 'Petras Pizdys',
+        'target_name' => 'Petras Pizdys',
         'event_str' => 'pamestas telefonas',
     ],
     [
-        'target' => 'Tomas Ablomas',
+        'target_name' => 'Tomas Ablomas',
         'event_str' => 'naudojamas bulijonas',
     ],
     [
-        'target' => 'Ana Shitkova',
+        'target_name' => 'Ana Shitkova',
         'event_str' => 'pasibaigęs rulonas',
-    ]
+    ],
 ];
 
 var_dump($target_events);
