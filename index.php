@@ -2,16 +2,19 @@
 
 $target_events = [
     [
-        'target_name' => 'Petras Pizdys',
+        'user' => 'Petras Pizdys',
         'event_str' => 'pamestas telefonas',
+        'event_negative' => true,
     ],
     [
-        'target_name' => 'Tomas Ablomas',
+        'user' => 'Tomas Ablomas',
         'event_str' => 'naudojamas bulijonas',
+        'event_negative' => false,
     ],
     [
-        'target_name' => 'Ana Shitkova',
+        'user' => 'Ana Shitkova',
         'event_str' => 'pasibaigęs rulonas',
+        'event_negative' => true,
     ],
 ];
 
