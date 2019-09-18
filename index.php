@@ -6,9 +6,8 @@ $mano_atmintis = [
     'legislature', 'temple'
 ];
 
-$count = count($mano_atmintis);
-$count--;
-$id_random = rand(0, $count);
+$flashback_count = count($mano_atmintis);
+$id_random = rand(0, ($flashback_count - 1));
 $rand_flashback = $mano_atmintis[$id_random];
 $id_random++;
 
