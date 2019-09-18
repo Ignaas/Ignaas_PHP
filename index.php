@@ -1,18 +1,18 @@
 <?php
 
-$targeted_excpt = [
+$target_events = [
     [
         'target' => 'Petras Pizdys',
-        'exception' => 'pamestas telefonas',
+        'event' => 'pamestas telefonas',
     ],
     [
         'target' => 'Tomas Ablomas',
-        'exception' => 'naudojamas bulijonas',
+        'event' => 'naudojamas bulijonas',
     ],
     [
         'target' => 'Ana Shitkova',
-        'exception' => 'pasibaigęs rulonas',
+        'event' => 'pasibaigęs rulonas',
     ]
 ];
 
-var_dump($targeted_excpt);
+var_dump($target_events);
