@@ -7,11 +7,12 @@ $mano_atmintis = [
 ];
 
 $count = count($mano_atmintis);
+$count--;
 $id_random = rand(0, $count);
 $rand_flashback = $mano_atmintis[$id_random];
 $id_random++;
 
-$h3_text = "Flashback $id_random: $rand_flashback";
+$h3_text = "Flashback #$id_random: $rand_flashback";
 
 ?>
 <html>
