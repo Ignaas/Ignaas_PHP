@@ -1,11 +1,11 @@
 <?php
 
 $prekes = [
-    'mazi' => ['baklažanas'],
-    'dideli' => [
-        'kiaušinis',
-        'kiaušinis',
-        'grietinės indelis',
+    'mazos' => [
+        'baklažanas' => 1],
+    'dideles' => [
+        'kiaušinis' => 2,
+        'grietinės indelis' => 1,
     ],
 ];
 
