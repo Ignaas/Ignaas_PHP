@@ -20,7 +20,8 @@ $mano_atmintis = [
     </head>
     <body>
         <h1>Kas buvo penktadienį?</h1>
-        <h2>Ignas artimesnis - atmintis
+        <h2>
+            Ignas artimesnis - atmintis
             <ul>
                 <?php foreach ($mano_atmintis as $reiksme): ?>
                     <li><?php print $reiksme; ?></li>
