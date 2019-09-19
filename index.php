@@ -1,51 +1,72 @@
 <?php
 
-$mano_atmintis = [
-    'Ey', 'Skomantas', 'Baras',
-    'Gvidas Ojeras', 'Gudeliunas', 'vegetarian',
-    'legislature', 'temple',
+$bank_report = [
+    [
+        'operation_name' => 'IKI darbo užmokestis',
+        'amount' => 600,
+    ],
+    [
+        'operation_name' => 'Kalvarijų načnykas',
+        'amount' => -15,
+    ],
+    [
+        'operation_name' => 'Pinigų išgryninimas Naugarduko g.',
+        'amount' => -10000,
+    ],
+    [
+        'operation_name' => 'Pinigų išgryninimo mokestis',
+        'amount' => -100000000,
+    ],
 ];
-$draugo_atmintis = [
-    'We wasn\'t', 'supposed to', 'make it', 'past 25',
-    'legislature', 'Ey', 'Skomantas', 'boom', 'temple',
-];
-$bendra_atmintis = array_intersect($mano_atmintis, $draugo_atmintis);
 
-$count = count($mano_atmintis) - 1;
-$id_random = rand(0, $count);
-$rand_flashback = $mano_atmintis[$id_random];
-$id_random++;
+$balance = 0;
+$total_income = 0;
+$total_expenses = 0;
 
-$h3_text = "Flashback #$id_random: $rand_flashback";
+foreach ($bank_report as $operation_idx => $operation) {
+    $balance += $operation['amount'];
+    if ($operation['amount'] > 0) {
+        $bank_report[$operation_idx]['css_class'] = 'income';
+        $total_income += $operation['amount'];
+    } else {
+        $bank_report[$operation_idx]['css_class'] = 'expense';
+        $total_expenses += $operation['amount'];
+    }
+    $bank_report[$operation_idx]['text'] = "{$operation['operation_name']}: {$operation['amount']}";
+}
+
+$h2_text = "Balansas: $balance eur";
+$h3_text_income = "Įplaukos: $total_income eur";
+$h3_text_expenses = "Išlaidos: $total_expenses eur";
 
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Užduotis #3</title>
+        <title>PHP arrays examples</title>
+        <style>
+            .item {
+                width: 50%;
+            }
+            .income {
+                background-color: green;
+            }
+            .expense {
+                background-color: red;
+            }
+        </style>
     </head>
     <body>
-        <h1>Kas buvo penktadienį?</h1>
-        <h2>Ignas artimesnis atmintis</h2>
+        <h1>Mano banko išklotinė</h1>
         <ul>
-            <?php foreach ($mano_atmintis as $mintis): ?>
-                <li><?php print $mintis; ?></li>
+            <?php foreach ($bank_report as $operation): ?>
+                <li class="item <?php print $operation['css_class']; ?>">
+                    <?php print $operation['text']; ?>
+                </li>
             <?php endforeach; ?>
         </ul>
-        <h3><?php print $h3_text; ?></h3>
-        <h2>Draugo atmintis</h2>
-        <ul>
-            <?php foreach ($draugo_atmintis as $mintis): ?>
-                <li><?php print $mintis; ?></li>
-            <?php endforeach; ?>
-        </ul>
-        <h3>
-            <p>Sutapę prisiminimai</p>
-            <ul>
-                <?php foreach ($bendra_atmintis as $mintis): ?>
-                    <li><?php print $mintis; ?></li>
-                <?php endforeach; ?>
-            </ul>
-        </h3>
+        <h2><?php print $h2_text; ?></h2>
+        <h3><?php print $h3_text_income; ?></h3>
+        <h3><?php print $h3_text_expenses; ?></h3>
     </body>
 </html>
