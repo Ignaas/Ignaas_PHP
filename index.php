@@ -5,11 +5,22 @@ $mano_atmintis = [
     'Gvidas Ojeras', 'Gudeliunas', 'vegetarian',
     'legislature', 'temple',
 ];
-
 $draugo_atmintis = [
     'We wasn\'t', 'supposed to', 'make it', 'past 25',
     'legislature', 'Ey', 'Skomantas', 'boom', 'temple',
 ];
+$bendra_atmintis = [];
+
+$mano_atmintis_count = count($mano_atmintis);
+$draugo_atmintis_count = count($draugo_atmintis);
+
+for ($i = 0; $i < $mano_atmintis_count; $i++) {
+    for ($j = 0; $j < $draugo_atmintis_count; $j++) {
+        if ($mano_atmintis[$i] === $draugo_atmintis[$j]) {
+            $bendra_atmintis[] = $mano_atmintis[$i];
+        }
+    }
+}
 
 $count = count($mano_atmintis) - 1;
 $id_random = rand(0, $count);
@@ -39,5 +50,13 @@ $h3_text = "Flashback #$id_random: $rand_flashback";
                 <li><?php print $mintis; ?></li>
             <?php endforeach; ?>
         </ul>
+        <h3>
+            <p>Sutapę prisiminimai</p>
+            <ul>
+                <?php foreach ($bendra_atmintis as $mintis): ?>
+                    <li><?php print $mintis; ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </h3>
     </body>
 </html>
