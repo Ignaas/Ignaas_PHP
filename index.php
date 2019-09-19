@@ -19,12 +19,12 @@ $bank_report = [
     ],
 ];
 
-foreach ($bank_report as $key => $value) {
-    foreach ($value as $item) {
-        if ($value['amount'] > 0) {
-            $bank_report[$key]['css_class'] = 'income';
+foreach ($bank_report as $op_key => $operation) {
+    foreach ($operation as $op_id) {
+        if ($operation['amount'] > 0) {
+            $bank_report[$op_key]['css_class'] = 'income';
         } else {
-            $bank_report[$key]['css_class'] = 'expense';
+            $bank_report[$op_key]['css_class'] = 'expense';
         }
     }
 }
