@@ -9,18 +9,7 @@ $draugo_atmintis = [
     'We wasn\'t', 'supposed to', 'make it', 'past 25',
     'legislature', 'Ey', 'Skomantas', 'boom', 'temple',
 ];
-$bendra_atmintis = [];
-
-$mano_atmintis_count = count($mano_atmintis);
-$draugo_atmintis_count = count($draugo_atmintis);
-
-for ($i = 0; $i < $mano_atmintis_count; $i++) {
-    for ($j = 0; $j < $draugo_atmintis_count; $j++) {
-        if ($mano_atmintis[$i] === $draugo_atmintis[$j]) {
-            $bendra_atmintis[] = $mano_atmintis[$i];
-        }
-    }
-}
+$bendra_atmintis = array_intersect($mano_atmintis, $draugo_atmintis);
 
 $count = count($mano_atmintis) - 1;
 $id_random = rand(0, $count);
