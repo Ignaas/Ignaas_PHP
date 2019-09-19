@@ -1,29 +1,30 @@
 <?php
 
-$array = [];
-$timestamp = strtotime('next Monday');
-$work_start = 8;
-$work_end = 16;
+$bank_report = [
+    [
+        name => 'IKI darbo užmokestis',
+        amount => 600,
+    ],
+    [
+        name => 'Kalvarijų Načnykas',
+        amount => -15,
+    ],
+    [
+        name => 'Pinigų išgryninimas Naugarduko g.',
+        amount => -10000,
+    ],
+    [
+        name => 'Pinigų išgryninimo mokestis',
+        amount => -100000000,
+    ],
+];
 
-for ($i = 1; $i <= 7; $i++) {
-    $weekday = date('l', $timestamp);
-    $timestamp = strtotime('+1 day', $timestamp);
-
-    if ($weekday === 'Sunday') {
-        $array[$weekday] = 'Sunday Service';
-    } elseif ($weekday === 'Saturday') {
-        $array[$weekday] = 'Weekend';
+foreach ($bank_report as $report) {
+    if ($report['amount'] > 0) {
+        $report['css_class'] = 'income';
     } else {
-        for ($y = 1; $y <= 24; $y++) {
-            if ($y >= $work_start && $y <= $work_end) {
-                $array[$weekday][$y] = 'work hour';
-            } else {
-                $array[$weekday][$y] = 'freetime';
-            }
-        }
+        $report['css_class'] = 'expense';
     }
 }
-
-var_dump($array);
 
 ?>
