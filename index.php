@@ -28,7 +28,14 @@ $drinks = [
 ];
 
 foreach ($drinks as $drink_idx => $drink) {
-    $drinks[$drink_idx]['price_retail'] = $drink['price_stock'] * (1 - $drink['discount'] / 100);
+    $drinks[$drink_idx]['price_retail'] = number_format($drink['price_stock'] * (1 - $drink['discount'] / 100), 2);
+    $drinks[$drink_idx]['price_display_retail'] = '€' . $drinks[$drink_idx]['price_retail'];
+
+    if ($drinks[$drink_idx]['price_retail'] < $drinks[$drink_idx]['price_stock']) {
+        $drinks[$drink_idx]['price_display_wholesale'] = '€' . $drinks[$drink_idx]['price_stock'];
+    } else {
+        $drinks[$drink_idx]['price_display_wholesale'] = null;
+    }
 }
 
 ?>
@@ -47,11 +54,17 @@ foreach ($drinks as $drink_idx => $drink) {
                 width: 50%;
                 margin: auto;
             }
-            .drink-price-tag {
-                background: #FF9999;
+            .drink-price-retail {
                 position: absolute;
                 top: 0;
                 right: 0;
+                background: #FF9999;
+            }
+            .drink-price-wholesale {
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: #D3D3D3;
             }
             .drink-image {
                 width: 200px;
@@ -63,11 +76,10 @@ foreach ($drinks as $drink_idx => $drink) {
         <h1>Drink Catalogue</h1>
         <?php foreach ($drinks as $drink): ?>
             <div class="border">
-                <span class="drink-price-tag">
-                    <?php print number_format($drink['price_retail'], 2) . '€'; ?>
-                </span>
-                <img class="drink-image" src="<?php print $drink['img']; ?>"  />
-                <div class="drink-name"><?php print $drink['name']; ?></div>
+                <span class="drink-price-retail"><?php print $drink['price_display_retail']; ?></span>
+                <span class="drink-price-wholesale"><?php print $drink['price_display_wholesale']; ?></span>
+                <img class = "drink-image" src = "<?php print $drink['img']; ?>">
+                <div class = "drink-name"><?php print $drink['name']; ?></div>
             </div>
         <?php endforeach; ?>
     </div>
