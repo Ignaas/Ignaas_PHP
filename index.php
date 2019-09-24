@@ -23,7 +23,7 @@ $drinks = [
         'name' => 'Kalnapilio Radler',
         'price_stock' => 2.5,
         'discount' => 10,
-        'img' => 'https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fres.cloudinary.com%2Fratebeer%2Fimage%2Fupload%2Fw_250%2Cc_limit%2Fbeer_349196.jpg&f=1&nofb=1',
+        'img' => 'https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.pricer.lt%2Fdynamic%2Fforeign.png%3Fimage%3Dhttps%3A%252F%252Fwww.barbora.lt%252Fapi%252FImages%252FGetInventoryImage%253Fid%253Dabf537df-38e7-44c8-ad2f-6a4156b8128d&f=1&nofb=1',
     ],
 ];
 
@@ -31,6 +31,45 @@ foreach ($drinks as $drink_idx => $drink) {
     $drinks[$drink_idx]['price_retail'] = $drink['price_stock'] * (1 - $drink['discount'] / 100);
 }
 
-var_dump($drinks);
-
 ?>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            .border {
+                border: 2px solid black;
+                display: inline-block;
+                position: relative;
+            }
+            .drink-name {
+                font-size: 1.4rem;
+                text-align: center;
+                width: 50%;
+                margin: auto;
+            }
+            .drink-price-tag {
+                background: #FF9999;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+            .drink-image {
+                width: 200px;
+                height: 200px;
+            } 
+        </style>
+    </head>
+    <body>
+        <h1>Drink Catalogue</h1>
+        <?php foreach ($drinks as $drink): ?>
+            <div class="border">
+                <span class="drink-price-tag">
+                    <?php print number_format($drink['price_retail'], 2) . '€'; ?>
+                </span>
+                <img class="drink-image" src="<?php print $drink['img']; ?>"  />
+                <div class="drink-name"><?php print $drink['name']; ?></div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</body>
+</html>
