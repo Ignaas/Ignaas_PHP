@@ -30,13 +30,16 @@ $drinks = [
 foreach ($drinks as $drink_idx => $drink) {
     $drinks[$drink_idx]['price_retail'] = number_format($drink['price_stock'] * (1 - $drink['discount'] / 100), 2);
     $drinks[$drink_idx]['price_display_retail'] = '€' . $drinks[$drink_idx]['price_retail'];
-
+    $drinks[$drink_idx]['in_stock'] = rand(0,1) == 1;
+    
     if ($drinks[$drink_idx]['price_retail'] < $drinks[$drink_idx]['price_stock']) {
         $drinks[$drink_idx]['price_display_wholesale'] = '€' . number_format($drinks[$drink_idx]['price_stock'], 2);
     } else {
         $drinks[$drink_idx]['price_display_wholesale'] = null;
     }
 }
+
+var_dump($drinks);
 
 ?>
 <html>
