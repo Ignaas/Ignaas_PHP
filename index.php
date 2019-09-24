@@ -32,7 +32,7 @@ foreach ($drinks as $drink_idx => $drink) {
     $drinks[$drink_idx]['price_display_retail'] = '€' . $drinks[$drink_idx]['price_retail'];
 
     if ($drinks[$drink_idx]['price_retail'] < $drinks[$drink_idx]['price_stock']) {
-        $drinks[$drink_idx]['price_display_wholesale'] = '€' . $drinks[$drink_idx]['price_stock'];
+        $drinks[$drink_idx]['price_display_wholesale'] = '€' . number_format($drinks[$drink_idx]['price_stock'], 2);
     } else {
         $drinks[$drink_idx]['price_display_wholesale'] = null;
     }
