@@ -3,10 +3,12 @@
 $x = rand(0, 20);
 
 function is_prime($x) {
-    if ($x % 2 == 0 || $x % 3 == 0)
-        return false;
-    else {
-        return true;
+    for ($i = 2; $i <= $x; $i++) {
+        if ($x % $i == 0) {
+            return false;
+            break;
+        } else
+            return true;
     }
 }
 
