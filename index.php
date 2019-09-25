@@ -7,7 +7,7 @@ function sum($x, $y) {
     return $x + $y;
 }
 
-$text = "$x ir $y suma:" . sum($x, $y);
+$text = "$x ir $y suma: " . sum($x, $y);
 
 ?>
 <html>
