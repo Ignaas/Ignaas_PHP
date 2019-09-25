@@ -1,6 +1,6 @@
 <?php
 
-$x = rand(0, 20);
+$x = 6;
 
 function is_prime($x) {
     $i = 2;
@@ -13,7 +13,7 @@ function is_prime($x) {
             $i++;
         }
     }
-    if ($x == $i && $x % 2 != 0 && $x % 3 != 0) {
+if ($x == $i && $x % 2 != 0 && $x % 3 != 0 || $x == 1 || $x == 3) {
         return true;
     }
 }
