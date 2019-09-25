@@ -11,6 +11,6 @@ function slot_run($size) {
     return $array;
 }
 
-$slots = slot_run(rand(2, 6));
+$slots_machine = slot_run(rand(2, 6));
 
-var_dump($slots);
+var_dump($slots_machine);
