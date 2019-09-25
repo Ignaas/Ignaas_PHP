@@ -1,31 +1,16 @@
 <?php
 
-$x = 6;
-
-function is_prime($x) {
-    $i = 2;
-
-    while ($i <= $x) {
-        if ($x % $i == 0) {
-            break;
-            return false;
-        } else {
-            $i++;
+function slot_run($size) {
+    for ($i = 1; $i <= $size; $i++) {
+        for ($j = 1; $j <= $size; $j++) {
+            $array[$i][$j] = rand(0, 1);
         }
     }
-if ($x == $i && $x % 2 != 0 && $x % 3 != 0 || $x == 1 || $x == 3) {
-        return true;
-    }
+    return $array;
 }
 
-$h1_text = "$x " . (is_prime($x) ? 'yra' : 'nėra') . ' pirminis sk.';
+$slots = slot_run(rand(2, 6));
+
+var_dump($slots);
 
 ?>
-<html>
-    <head>
-        <meta charset="UTF-8">
-    </head>
-    <body>
-        <h1><?php print $h1_text; ?></h1>
-    </body>
-</html>
