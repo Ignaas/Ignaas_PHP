@@ -7,7 +7,7 @@ function sum($x, $y) {
     return $x + $y;
 }
 
-$text = "$x ir $y suma: " . sum($x, $y);
+$h1_text = "$x ir $y suma: " . sum($x, $y);
 
 ?>
 <html>
@@ -15,6 +15,6 @@ $text = "$x ir $y suma: " . sum($x, $y);
         <meta charset="UTF-8">
     </head>
     <body>
-        <h1><?php print($text); ?></h1>
+        <h1><?php print($h1_text); ?></h1>
     </body>
 </html>
