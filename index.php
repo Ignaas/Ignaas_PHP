@@ -1,13 +1,16 @@
 <?php
 
-$x = 5;
-$y = 2;
+$x = rand(0, 20);
 
-function sum($x, $y) {
-    return $x + $y;
+function is_prime($x) {
+    if ($x % 2 == 0 || $x % 3 == 0)
+        return false;
+    else {
+        return true;
+    }
 }
 
-$h1_text = "$x ir $y suma: " . sum($x, $y);
+$h1_text = "$x " . (is_prime($x) ? 'yra' : 'nėra') . ' pirminis sk.';
 
 ?>
 <html>
@@ -15,6 +18,6 @@ $h1_text = "$x ir $y suma: " . sum($x, $y);
         <meta charset="UTF-8">
     </head>
     <body>
-        <h1><?php print($h1_text); ?></h1>
+        <h1><?php print $h1_text; ?></h1>
     </body>
 </html>
