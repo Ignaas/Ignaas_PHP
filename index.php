@@ -1,45 +1,34 @@
 <?php
 
-function slot_run($size) {
-    $array = [];
+$masyvas = [
+    'kiesa500' => 'stringinis',
+    1 => ['reiksme0', 'nemasyvas1', 'tekstas2', ['dar geriaurekursyvoblio']],
+];
 
-    for ($i = 1; $i <= $size; $i++) {
-        for ($j = 1; $j <= $size; $j++) {
-            $array[$i][$j] = rand(0, 1);
+function print_array($array) {
+    $output_array = [];
+
+    foreach ($array as $keys => $values) {
+        if (is_array($values)) {
+            $output_array = array_merge($output_array, print_array($values));
+        } else {
+            $output_array[$keys] = $values;
         }
     }
-    return $array;
+    return $output_array;
 }
 
-$slots_machine = slot_run(rand(2, 4));
+print_array($masyvas);
+print '<br><br><br>';
+$viematmas = print_array($masyvas);
+var_dump($viematmas);
 
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
-        <style>
-            span {
-                display: inline-block;
-                height: 50px;
-                width: 50px;
-            }
-            .slots-col-win {
-                background: #ffc000;
-                border: 1px solid black;
-            }
-            .slots-col-loss {
-                background: #00a3da;
-                border: 1px solid black;
-            }
-        </style>
     </head>
     <body>
-        <?php foreach ($slots_machine as $row_slots): ?>
-            <div>
-                <?php foreach ($row_slots as $col_slots): ?>
-                    <span class="slots-col-<?php print $col_slots ? 'win' : 'loss'; ?>"></span>
-                <?php endforeach; ?>
-            </div>
-        <?php endforeach; ?>
+
     </body>
 </html>
