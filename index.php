@@ -1,16 +1,12 @@
 <?php
 
-function square($x) {
-    return $x ** 2;
+var_dump($_POST);
+$clicks_num = 0;
+
+if (isset($_POST['enter'])) {
+    $clicks_num = $_POST['enter'];
+    $clicks_num++;
 }
-
-$kvadratas = 0;
-
-if (isset($_POST['name'])) {
-    $kvadratas = square($_POST['name']);
-}
-
-$h1_text = "Atsakymas: $kvadratas";
 
 ?>
 <html>
@@ -18,10 +14,10 @@ $h1_text = "Atsakymas: $kvadratas";
         <meta charset="UTF-8">
     </head>
     <body>
-        <form action="index.php" method="POST">
-            Ką pakelti kvadratu: <input type="number" name="name">
-            <input type="submit">
+        <form method ="post">
+            <input type="submit" name="enter" value="<?php print $clicks_num; ?>" />
         </form>
-        <h1><?php isset($h1_text) ? print $h1_text : print 'Nėra submit'; ?></h1>
-    </body>
+
+    </form>
+</body>
 </html>
