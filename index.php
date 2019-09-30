@@ -15,9 +15,7 @@ if (isset($_POST['enter'])) {
     </head>
     <body>
         <form method ="post">
-            <input type="submit" name="enter" value="<?php print $clicks_num; ?>" />
+            <input type="submit" name="enter" value="<?php print $clicks_num; ?>">
         </form>
-
-    </form>
-</body>
+    </body>
 </html>
