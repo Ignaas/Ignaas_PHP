@@ -18,13 +18,12 @@ $form = [
                 ],
             ],
             'label' => 'Vardas',
-            'error' => 'Klaida: nėra vardo',
+//            'filter' => FILTER_SANITIZE_NUMBER_FLOAT,
         ],
         'lastname' => [
             'attr' => [
                 'type' => 'text',
             ],
-            'error' => 'Klaida: nėra pavardės',
         ],
         'gender' => [
             'attr' => [
@@ -71,16 +70,26 @@ function get_filtered_input($form) {
     $filter_parameters = [];
 
     foreach ($form['fields'] as $field_id => $field) {
-        $filter_parameters[$field_id] = FILTER_SANITIZE_SPECIAL_CHARS;
+        $filter_parameters[$field_id] = $field['filter'] ?? FILTER_SANITIZE_SPECIAL_CHARS;
     }
 
     return filter_input_array(INPUT_POST, $filter_parameters);
 }
 
-$input = get_filtered_input($form);
+$inputs = get_filtered_input($form);
+
+foreach ($form['fields'] as $field_id => &$field) {
+    $field['attr']['value'] = $inputs[$field_id];
+
+    if ($inputs[$field_id] === '') {
+        $field['error'] = 'Klaidos stringas';
+    }
+
+    unset($field);
+}
 
 var_dump($_POST);
-var_dump($input);
+var_dump($inputs);
 
 ?>
 <html>
