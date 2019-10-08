@@ -61,6 +61,15 @@ $form = [
                 'validate_max_100'
             ],
         ],
+        'email' => [
+            'attr' => [
+                'type' => 'text', // NOT FRONT VALIDATION
+            ],
+            'label' => 'Įveskite el.pašto adresą',
+            'validate' => [
+                'validate_email',
+            ],
+        ],
     ],
     'buttons' => [
         'enter' =>
@@ -96,34 +105,32 @@ function get_filtered_input($form) {
 }
 
 function validate_not_empty($field_input, &$field) {
-    if (isset($field_input)) {
-        if (empty($field_input)) {
-            $field['error'] = "Laukas negali būti tusčias";
-        }
+    if (empty($field_input)) {
+        $field['error'] = "Laukas negali būti tusčias";
     }
 }
 
 function validate_is_number($field_input, &$field) {
-    if (isset($field_input)) {
-        if (!is_numeric($field_input) && !empty($field_input)) {
-            $field['error'] = "Laukas negali nenumerinis";
-        }
+    if (!is_numeric($field_input) && !empty($field_input)) {
+        $field['error'] = "Laukas negali nenumerinis";
     }
 }
 
 function validate_is_positive($field_input, &$field) {
-    if (isset($field_input)) {
-        if ($field_input < 0) {
-            $field['error'] = "Laukas negali buti negatyvus";
-        }
+    if ($field_input < 0) {
+        $field['error'] = "Laukas negali buti negatyvus";
     }
 }
 
 function validate_max_100($field_input, &$field) {
-    if (isset($field_input)) {
-        if ($field_input >= 100) {
-            $field['error'] = "Laukas negali didesnis už 100";
-        }
+    if ($field_input >= 100) {
+        $field['error'] = "Laukas negali didesnis už 100";
+    }
+}
+
+function validate_email($field_input, &$field) {
+    if (!filter_var($field_input, FILTER_VALIDATE_EMAIL)) {
+        $field['error'] = "Invalid email format";
     }
 }
 
@@ -135,7 +142,10 @@ function validate_form(&$form) {
         $field['attr']['value'] = $field_input;
 
         foreach ($field['validate'] ?? [] as $validation) {
-            $validation($field_input, $field);
+            if (isset($field_input)) {
+                $validation($field_input, $field);
+                break;
+            }
         }
     }
 
