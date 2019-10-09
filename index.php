@@ -8,151 +8,207 @@ $form = [
         'id' => 'login-form',
     ],
     'fields' => [
-        'firstname' => [
-            'attr' => [
-                'type' => 'text',
-            ],
+        'first-name' => [
+            'label' => 'Vardas',
+            'type' => 'text',
             'extras' => [
                 'attr' => [
-                    'placeholder' => 'FIRSTNAME',
+                    'placeholder' => 'NAME',
+                ],
+                'validate' => [
+                    'validate_not_empty'
                 ],
             ],
-            'label' => 'Vardas',
-            'validate' => [
-                'validate_not_empty',
-            ],
         ],
-        'lastname' => [
-            'attr' => [
-                'type' => 'text',
+        'age' => [
+            'label' => 'AGE ',
+            'type' => 'number',
+            'extra' => [
+                'attr' => [
+                    'placeholder' => 'Enter your age',
+                    'class' => '',
+                ],
+                'validate' => [
+                    'validate_is_number',
+                    'validate_is_positive',
+                    'validate_max_100'
+                ],
             ],
         ],
         'gender' => [
-            'attr' => [
-                'type' => 'select',
-                'value' => 'male',
-            ],
+            'label' => 'Dėmesio pasirinkite lytį:',
+            'type' => 'select',
             'extra' => [
                 'attr' => [
-                    'id' => 'gender',
+                    'placeholder' => 'WHAT?!',
+                ],
+                'validate' => [
+                    'validate_not_empty',
                 ],
             ],
-            'options' => [
-                'male' => 'Vyras',
-                'female' => 'Moteris',
-                'others' => 'Kiti',
-            ],
-            'label' => 'Dėmesio: pasirinkite lyti',
-        ],
-        'age' => [
-            'attr' => [
-                'type' => 'number',
-            ],
-            'extras' => [
-                'attr' => [
-                    'placeholder' => 'AGE',
-                ],
-            ],
-            'label' => 'Amžius',
-            'validate' => [
-                'validate_not_empty',
-                'validate_is_number',
-                'validate_is_positive',
-                'validate_max_100'
-            ],
+            'options' => ['male' => 'vyras', 'female' => 'moteris', 'undefined' => 'kita'],
         ],
         'email' => [
-            'attr' => [
-                'type' => 'text', // NOT FRONT VALIDATION
+            'label' => 'Įveskite el. paštą: ',
+            'type' => 'text', // tam kad vykdytume validacija backe
+            'extra' => [
+                'attr' => [
+                    'placeholder' => 'Enter your email',
+                    'class' => '',
+                ],
+                'validate' => [
+                    'validate_not_empty',
+                    'validate_email'
+                ],
             ],
-            'label' => 'Įveskite el.pašto adresą',
-            'validate' => [
-                'validate_email',
+        ],
+        'number-x' => [
+            'label' => 'Number-x',
+            'type' => 'number',
+            'extras' => [
+                'attr' => [
+                    'placeholder' => 'Type X value',
+                ],
+                'validate' => [
+                    'validate_not_empty',
+                    'validate_is_number',
+                ],
+            ],
+        ],
+        'number-y' => [
+            'label' => 'Number-y',
+            'type' => 'number',
+            'extras' => [
+                'attr' => [
+                    'placeholder' => 'Type Y value',
+                ],
+                'validate' => [
+                    'validate_not_empty',
+                    'validate_is_number',
+                ],
             ],
         ],
     ],
     'buttons' => [
-        'enter' =>
-        [
+        'submit' => [
             'type' => 'submit',
-            'text' => 'iveskite',
         ],
     ],
-    'message' => 'Message!!!!!!!!!',
+    'callbacks' => [
+        'success' => 'form_success',
+        'fail' => 'form_fail',
+    ],
 ];
 
-function html_attr($attribute) {
-    $html_attr_array = [];
-
-    foreach ($attribute as $attribute_key => $attribute_value) {
-        $html_attr_array[] = strtr('@key="@value"', [
-            '@key' => $attribute_key,
-            '@value' => $attribute_value
-        ]);
-    }
-
-    return implode(" ", $html_attr_array);
-}
-
-function get_filtered_input($form) {
-    $filter_parameters = [];
-
-    foreach ($form['fields'] as $field_id => $field) {
-        $filter_parameters[$field_id] = $field['filter'] ?? FILTER_SANITIZE_SPECIAL_CHARS;
-    }
-
-    return filter_input_array(INPUT_POST, $filter_parameters);
-}
-
 function validate_not_empty($field_input, &$field) {
-    if (empty($field_input)) {
-        $field['error'] = "Laukas negali būti tusčias";
-    }
+    if ($field_input === '') {
+        $field['error'] = 'Laukas negali būti tuščias.';
+    } else {
+        return true;
+    };
 }
 
 function validate_is_number($field_input, &$field) {
     if (!is_numeric($field_input) && !empty($field_input)) {
-        $field['error'] = "Laukas negali nenumerinis";
-    }
+        $field['error'] = 'Lauke turi būti skaičius.';
+    } else {
+        return true;
+    };
 }
 
 function validate_is_positive($field_input, &$field) {
     if ($field_input < 0) {
-        $field['error'] = "Laukas negali buti negatyvus";
-    }
+        $field['error'] = 'Lauke turi būti skaičius, didesnis už 0.';
+    } else {
+        return true;
+    };
 }
 
 function validate_max_100($field_input, &$field) {
-    if ($field_input >= 100) {
-        $field['error'] = "Laukas negali didesnis už 100";
-    }
+    if ($field_input > 100) {
+        $field['error'] = 'Lauke turi būti skaičius, mažesnis nei 100.';
+    } else {
+        return true;
+    };
 }
 
 function validate_email($field_input, &$field) {
-    if (!filter_var($field_input, FILTER_VALIDATE_EMAIL)) {
-        $field['error'] = "Invalid email format";
+    if (!strpos($field_input, '@') && !empty($field_input)) {
+        $field['error'] = 'Neteisingas emailas';
+    } else {
+        return true;
+    };
+}
+
+function form_success() {
+    if (!empty($_POST)) {
+        var_dump('success');
     }
 }
 
-function validate_form(&$form) {
-    $inputs = get_filtered_input($form);
+function form_fail() {
+    var_dump('Klaida');
+}
 
+function html_attr($array) {
+    $container_array = [];
+    foreach ($array as $key => $value) {
+        $container_array[] = strtr('@key="@value"', [// @ skiriamasis zenklas
+            '@key' => $key,
+            '@value' => $value,
+        ]);
+    };
+    return implode(' ', $container_array);
+}
+
+function get_filtered_input($array) {
+    $filter_parameters = [];
+    foreach ($array['fields'] as $idx => $inner_array) {
+        $filter_parameters[$idx] = $inner_array['filter'] ?? FILTER_SANITIZE_SPECIAL_CHARS; // jei yra masivo filtras, ji naudoja, jei ne default sanitizas
+    };
+    return filter_input_array(INPUT_POST, $filter_parameters);
+}
+
+$filtered_input = get_filtered_input($form);
+
+function validate_form($filtered_input, &$form) {
+    $success = true;
     foreach ($form['fields'] as $field_id => &$field) {
-        $field_input = $inputs[$field_id];
-        $field['attr']['value'] = $field_input;
+        $field_input = $filtered_input[$field_id];
+        $field['value'] = $field_input;
+        foreach ($field['extra']['validate'] ?? [] as $validator) {
+            $is_valid = $validator($field_input, $field); // kreipiamasi masyvo filtro masyvu kaip funkcijos vardu
 
-        foreach ($field['validate'] ?? [] as $validation) {
-            if (isset($field_input)) {
-                $validation($field_input, $field);
+
+            if (!$is_valid) {
+                $success = false;
                 break;
             }
         }
-    }
 
-    var_dump($inputs);
+
+        unset($field);
+    }
+    //callbacks
+    if ($success) {
+        if (isset($form['callbacks']['success'])) {
+            $form['callbacks']['success']($filtered_input, $form);
+        }
+    } else {
+        if (isset($form['callbacks']['fail'])) {
+            $form['callbacks']['fail']($filtered_input, $form);
+        }
+    }
+    //callbacks
+    return $success;
 }
 
-validate_form($form);
+if (!empty($filtered_input)) {
+    $success = validate_form($filtered_input, $form);
+    if ($success) {
+        var_dump($filtered_input['number-x'] + $filtered_input['number-y']);
+    }
+};
 
 ?>
 <html>
@@ -160,6 +216,6 @@ validate_form($form);
         <meta charset="UTF-8">
     </head>
     <body>
-        <?php require './templates/form.tpl.php'; ?>
+        <?php require 'templates/form.tpl.php'; ?>
     </body>
 </html>
