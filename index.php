@@ -7,8 +7,6 @@ $form = [
     'attr' => [
         'action' => 'index.php',
         'method' => 'POST',
-        'class' => 'my-form',
-        'id' => 'login-form',
     ],
     'fields' => [
         'nickname' => [
@@ -60,6 +58,7 @@ $filtered_input = get_filtered_input($form);
 
 if (!empty($filtered_input)) {
     $success = validate_form($filtered_input, $form);
+    $save_to_file = array_to_file($filtered_input, './data/db.txt'); // vienas funkcijos pavyzdys
 }
 
 ?>

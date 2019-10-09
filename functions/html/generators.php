@@ -11,3 +11,12 @@ function html_attr($array) {
     }
     return implode(' ', $container_array);
 }
+
+function array_to_file($array, $file) {
+    if (is_array($array)) {
+        file_put_contents($file, json_encode($array));
+        return true;
+    } else {
+        return false;
+    }
+}
