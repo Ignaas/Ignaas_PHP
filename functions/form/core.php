@@ -18,7 +18,7 @@ function validate_form($filtered_input, &$form) {
         $field_input = $filtered_input[$field_id];
         $field['value'] = $field_input;
 
-        foreach ($field['extra']['validate'] ?? [] as $validator) {
+        foreach (($field['extras']['validate'] ?? []) as $validator) {
             $is_valid = $validator($field_input, $field); // kreipiamasi masyvo filtro masyvu kaip funkcijos vardu
             if (!$is_valid) {
                 $success = false;
