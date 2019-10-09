@@ -1,37 +1,35 @@
 <?php if (isset($form) && !empty($form)): ?>
-    <form <?php print html_attr($form['attr']); ?>>
-        <!--Prasideda fieldai-->
+    <form <?php print html_attr(($form['attr'] ?? []) + ['method' => 'POST']); ?>>
+        <!-- Fieldu startas -->
         <?php foreach ($form['fields'] ?? [] as $field_id => $field): ?>
             <?php if (isset($field['label'])): ?><label><span><?php print $field['label']; ?></span><?php endif; ?>
 
 
-                <?php if ($field['attr']['type'] !== 'select'): ?>
-                    <input <?php print html_attr(['name' => $field_id] + $field['attr'] + ($field['extras']['attr'] ?? [])); ?>>
-                <?php else: ?>
-                    <select <?php print html_attr(['name' => $field_id] + ($field['extras']['attr'] ?? [])); ?>>
-                        <?php foreach ($field['options'] as $op_id => $op_val): ?>
-                            <option value="<?php print $op_id; ?>" <?php print ($field['attr']['value'] ?? null) === $op_id ? 'selected' : ''; ?>>
-                                <?php print $op_id; ?>
+                <?php if ($field['type'] === 'select'): ?>
+                    <select <?php print html_attr(['name' => $field_id]); ?>>
+                        <?php foreach ($field['options'] as $option_id => $option): ?>
+                            <option value="<?php print $option_id; ?>" <?php print ($field['value'] ?? null) === $option_id ? 'selected' : ''; ?>>
+                                <?php print $option; ?>
                             </option>
                         <?php endforeach; ?>
                     </select>
+                <?php else: ?>
+                    <input <?php print html_attr((['name' => $field_id, 'type' => $field['type'], 'value' => $field['value'] ?? '']) + ($field['extra']['attr'] ?? [])); ?>>
                 <?php endif; ?>
-            <?php if (isset($field['error'])): ?><div><?php print $field['error']; ?></div><?php endif; ?>
 
 
+                <?php if (isset($field['error'])): ?><span><?php print $field['error']; ?></span><?php endif; ?>
                 <?php if (isset($field['label'])): ?></label><?php endif; ?>
+            <br><br>
         <?php endforeach; ?>
-        <!--Baigiasi fieldai-->
-        <br>
-        <!--Prasideda buttonai-->
-        <?php foreach ($form['buttons'] ?? [] as $button): ?>
-            <button <?php print html_attr($button); ?>>
-                <?php print $button['text']; ?>
-            </button>
+        <!-- Fieldu pabaiga -->
+        <!-- Buttonu pradzia -->
+        <?php foreach ($form['buttons'] ?? [] as $button_id => $button): ?>
+            <input <?php print html_attr(['name' => $button_id] + $button); ?>>
         <?php endforeach; ?>
-        <!--Baigiasi buttonai-->
-
-        <!--Message - 7 uzduotis-->
-        <span><?php print $form['message']; ?></span>
+        <!-- Button pabaiga -->
+        <!-- Message Generation Start -->
+        <?php if (isset($form['message'])): ?><div><?php print $form['message']; ?></div><?php endif; ?>
+        <!-- Message Generation End -->
     </form>
 <?php endif; ?>
