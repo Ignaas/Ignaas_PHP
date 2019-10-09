@@ -54,11 +54,19 @@ function form_fail() {
     var_dump('Retard alert!');
 }
 
+function array_to_file($array, $file) {
+    if (is_array($array) && !empty($array)) {
+        return file_put_contents($file, json_encode($array));
+    } else {
+        return false;
+    }
+}
+
 $filtered_input = get_filtered_input($form);
 
 if (!empty($filtered_input)) {
     $success = validate_form($filtered_input, $form);
-    $save_to_file = array_to_file($filtered_input, './data/db.txt'); // vienas funkcijos pavyzdys
+    array_to_file($filtered_input, './data/db.txt'); // vienas funkcijos pavyzdys
 }
 
 ?>
