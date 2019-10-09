@@ -55,8 +55,16 @@ function form_fail() {
 }
 
 function array_to_file($array, $file) {
-    if (is_array($array) && !empty($array)) {
-        return file_put_contents($file, json_encode($array));
+    if (is_array($array)) {
+        $data_written = file_put_contents($file, json_encode($array));
+
+        if ($data_written === false) {
+            return false;
+        } elseif ($data_written == 0) {
+            return true;
+        } else {
+            return true;
+        }
     } else {
         return false;
     }
