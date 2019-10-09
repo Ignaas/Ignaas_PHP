@@ -116,6 +116,7 @@ if (!empty($filtered_input)) {
     $success = validate_form($filtered_input, $form);
 }
 
+
 var_dump($form);
 
 ?>
