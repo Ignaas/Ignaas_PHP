@@ -48,12 +48,11 @@ $form = [
 ];
 
 function form_success($current_input) {
+    setcookie('form_submitted', 'true', time() + 3600, '/');
+    
     $db_array = file_to_array(DB_FILE);
     $db_array[] = $current_input;
 
-    foreach ($current_input as $input_idx => $input) {
-        setcookie($input_idx, $input, time() + 3600, '/');
-    }
     array_to_file($db_array, DB_FILE);
 
     var_dump('You in!');
@@ -110,13 +109,13 @@ if (!empty($filtered_input)) {
             <?php require 'templates/form.tpl.php'; ?>
         <?php else: ?>
             <table>
-                <?php foreach ($_COOKIE as $idx => $user): ?>
+                <?php foreach ($users_array as $idx => $user): ?>
                     <tr>
                         <td><?php print $idx; ?></td>
-                        <td><?php print $user; ?></td>
+                        <td><?php print $user['nickname']; ?></td>
+                        <td><?php print $user['password']; ?></td>
                     </tr>
                 <?php endforeach; ?>
-            </table>
-        <?php endif; ?>
+            <?php endif; ?>
     </body>
 </html>
