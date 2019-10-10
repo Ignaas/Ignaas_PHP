@@ -64,33 +64,29 @@ function form_fail() {
 function array_to_file($array, $file) {
     if (is_array($array)) {
         $data_written = file_put_contents($file, json_encode($array));
-
-        if ($data_written === false) {
-            return false;
-        } elseif ($data_written == 0) {
+        if ($data_written !== false) {
             return true;
         } else {
-            return true;
+            return false;
         }
-    } else {
-
-        return false;
     }
+
+    return false;
 }
 
 function file_to_array($file) {
-
     if (file_exists($file)) {
         $data = file_get_contents($file);
-        $function_array = json_decode($data, true);
-        return $function_array;
-    } else {
-        return false;
+        if ($data !== false) {
+            return json_decode($data, true);
+        }
     }
+
+    return false;
 }
 
 $filtered_input = get_filtered_input($form);
-
+$data_array = file_to_array('./data/db.txt');
 
 
 if (!empty($filtered_input)) {
@@ -105,5 +101,14 @@ if (!empty($filtered_input)) {
     </head>
     <body>
         <?php require 'templates/form.tpl.php'; ?>
+        <table>
+            <?php foreach ($data_array as $idx => $user): ?>
+                <tr>
+                    <td><?php print $idx; ?></td>
+                    <td><?php print $user['nickname']; ?></td>
+                    <td><?php print $user['password']; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
     </body>
 </html>
