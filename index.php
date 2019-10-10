@@ -88,9 +88,9 @@ function file_to_array($file) {
 $filtered_input = get_filtered_input($form);
 
 if (file_to_array('./data/db.txt')) {
-    $data_array = file_to_array('./data/db.txt');
+    $users_array = file_to_array('./data/db.txt');
 } else {
-    $data_array = [];
+    $users_array = [];
 }
 
 if (!empty($filtered_input)) {
@@ -106,7 +106,7 @@ if (!empty($filtered_input)) {
     <body>
         <?php require 'templates/form.tpl.php'; ?>
         <table>
-            <?php foreach ($data_array as $idx => $user): ?>
+            <?php foreach ($users_array as $idx => $user): ?>
                 <tr>
                     <td><?php print $idx; ?></td>
                     <td><?php print $user['nickname']; ?></td>
