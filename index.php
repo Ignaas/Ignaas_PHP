@@ -2,6 +2,7 @@
 
 require './functions/html/generators.php';
 require './functions/form/core.php';
+define('DB_FILE', './data/db.txt');
 
 $form = [
     'attr' => [
@@ -47,11 +48,10 @@ $form = [
 ];
 
 function form_success($current_input) {
-    $db_path = './data/db.txt';
-    $db_array = file_to_array($db_path);
+    $db_array = file_to_array(DB_FILE);
 
     $db_array[] = $current_input;
-    array_to_file($db_array, $db_path);
+    array_to_file($db_array, DB_FILE);
 
     var_dump('You in!');
     var_dump($db_array);
@@ -66,9 +66,9 @@ function array_to_file($array, $file) {
         $data_written = file_put_contents($file, json_encode($array));
         if ($data_written !== false) {
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     return false;
@@ -87,15 +87,14 @@ function file_to_array($file) {
 
 $filtered_input = get_filtered_input($form);
 
-if (file_to_array('./data/db.txt')) {
-    $users_array = file_to_array('./data/db.txt');
+if (file_to_array(DB_FILE)) {
+    $users_array = file_to_array(DB_FILE);
 } else {
     $users_array = [];
 }
 
 if (!empty($filtered_input)) {
     $success = validate_form($filtered_input, $form);
-//    var_dump(file_to_array($file_test));
 }
 
 ?>
