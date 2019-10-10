@@ -49,7 +49,7 @@ $form = [
 
 function form_success($current_input) {
     setcookie('form_submitted', 'true', time() + 3600, '/');
-    
+
     $db_array = file_to_array(DB_FILE);
     $db_array[] = $current_input;
 
@@ -61,30 +61,6 @@ function form_success($current_input) {
 
 function form_fail() {
     var_dump('Retard alert!');
-}
-
-function array_to_file($array, $file) {
-    if (is_array($array)) {
-        $data_written = file_put_contents($file, json_encode($array));
-        if ($data_written !== false) {
-            return true;
-        }
-
-        return false;
-    }
-
-    return false;
-}
-
-function file_to_array($file) {
-    if (file_exists($file)) {
-        $data = file_get_contents($file);
-        if ($data !== false) {
-            return json_decode($data, true);
-        }
-    }
-
-    return false;
 }
 
 $filtered_input = get_filtered_input($form);
