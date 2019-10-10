@@ -46,8 +46,15 @@ $form = [
     ],
 ];
 
-function form_success() {
+function form_success($current_input) {
+    $db_path = './data/db.txt';
+    $db_array = file_to_array($db_path);
+
+    $db_array[] = $current_input;
+    array_to_file($db_array, $db_path);
+
     var_dump('You in!');
+    var_dump($db_array);
 }
 
 function form_fail() {
@@ -66,15 +73,29 @@ function array_to_file($array, $file) {
             return true;
         }
     } else {
+
+        return false;
+    }
+}
+
+function file_to_array($file) {
+
+    if (file_exists($file)) {
+        $data = file_get_contents($file);
+        $function_array = json_decode($data, true);
+        return $function_array;
+    } else {
         return false;
     }
 }
 
 $filtered_input = get_filtered_input($form);
 
+
+
 if (!empty($filtered_input)) {
     $success = validate_form($filtered_input, $form);
-    array_to_file($filtered_input, './data/db.txt'); // vienas funkcijos pavyzdys
+//    var_dump(file_to_array($file_test));
 }
 
 ?>
