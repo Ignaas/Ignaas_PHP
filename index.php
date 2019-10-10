@@ -86,8 +86,12 @@ function file_to_array($file) {
 }
 
 $filtered_input = get_filtered_input($form);
-$data_array = file_to_array('./data/db.txt');
 
+if (file_to_array('./data/db.txt')) {
+    $data_array = file_to_array('./data/db.txt');
+} else {
+    $data_array = [];
+}
 
 if (!empty($filtered_input)) {
     $success = validate_form($filtered_input, $form);
